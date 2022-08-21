@@ -1,7 +1,9 @@
 # usock-listener
 
 Creates and listen to an Unix socket.
-This is made to work with DDNet's logging method, supporting only IPv4 logging. The rest is not handled.
+This is made to work with DDNet's logging feature (https://github.com/ddnet/ddnet).
+This project supports only IPv4 logging. The rest is not handled.
+
 
 The Unix socket should always receive data of size 23 bytes.
 
