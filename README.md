@@ -23,10 +23,10 @@ The Unix socket should always receive data of size 23 bytes.
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ```
 
-- Command :
+- Command : https://github.com/ddnet/ddnet/blob/master/src/engine/server/server.h#L480
     - `0x1` : Client joined the game 
     - `0x2` : Client left the game (Not handled)
-- Type :
+- Type : https://github.com/ddnet/ddnet/blob/master/src/base/system.h#L821
     - `0x1` : IPv4
 - Address : Client's IP address
 - Port : Client's UDP port
