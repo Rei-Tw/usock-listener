@@ -39,6 +39,3 @@ The Unix socket should always receive data of size 23 bytes.
 - Install rust binaries using rustup : `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 - `cargo build --release`
 Info : You may probably need to install `libssl-dev`.
-
-## TODO
-- Pass the Unix socket path to argument
