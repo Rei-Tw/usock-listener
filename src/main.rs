@@ -6,7 +6,7 @@ use structopt::StructOpt;
 
 #[derive(Debug, StructOpt)]
 struct Command {
-    #[structopt(default_value = "listener.sock")]
+    #[structopt(default_value = "logger.sock")]
     sockpath: String,
 }
 
