@@ -6,7 +6,6 @@ use structopt::StructOpt;
 
 #[derive(Debug, StructOpt)]
 struct Command {
-    /// Interface index to attach XDP program
     #[structopt(default_value = "listener.sock")]
     sockpath: String,
 }
@@ -20,7 +19,6 @@ struct Ip {
 async fn main() -> std::io::Result<()> {
     let opts = Command::from_args();
     let client = reqwest::Client::new();
-
 
     let socket = match UnixDatagram::bind(&opts.sockpath) {
         Ok(dg) => dg,
