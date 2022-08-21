@@ -5,8 +5,6 @@ Creates and listen to an Unix socket.
 This is made to work with DDNet's logging feature (https://github.com/ddnet/ddnet).
 This project supports only IPv4 logging. The rest is not handled.
 
-The client's IP address is then sent to the whitelist through a Rest API.
-
 When using DDNet server you have to set `sv_conn_logging_server` variable as the Unix socket file path.
 
 The Unix socket should always receive data of size 23 bytes.
@@ -34,7 +32,7 @@ The Unix socket should always receive data of size 23 bytes.
     - `0x2` : Client left the game (Not handled)
 - Type : https://github.com/ddnet/ddnet/blob/master/src/base/system.h#L821
     - `0x1` : IPv4
-- Address : Client's IP address
+- Address : Client's IP address, sent after to the whitelist using POST request (Rest API)
 - Port : Client's UDP port
  
 ## How to build
