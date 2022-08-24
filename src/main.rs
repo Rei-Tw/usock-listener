@@ -8,6 +8,8 @@ use structopt::StructOpt;
 struct Command {
     #[structopt(default_value = "logger.sock")]
     sockpath: String,
+    #[structopt(default_value = "http://localhost:5000")]
+    api_url: String,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -46,7 +48,7 @@ async fn main() -> std::io::Result<()> {
 
         let params = Ip { ip: ip.to_string() };
 
-        match client.post("http://localhost:5000/api/v1/ips")
+        match client.post(format!("{}/api/v1/ips", opts.api_url))
             .json(&params)
             .send()
             .await {
