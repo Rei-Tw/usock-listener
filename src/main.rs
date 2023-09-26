@@ -52,7 +52,7 @@ async fn main() -> std::io::Result<()> {
             .json(&params)
             .send()
             .await {
-                Ok(_) => println!("Successfully whitelisted {:?}.", ip),
+                Ok(response) => println!("Successfully whitelisted {:?}. Status code {:?}", ip, response.status()),
                 Err(_) => println!("There was an error whitelisting {:?}.", ip),    
             };
  
