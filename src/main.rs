@@ -3,6 +3,7 @@ use std::net::Ipv4Addr;
 use tokio::net::UnixDatagram;
 use serde::{Serialize, Deserialize};
 use structopt::StructOpt;
+use reqwest::header::AUTHORIZATION;
 
 #[derive(Debug, StructOpt)]
 struct Command {
@@ -10,6 +11,8 @@ struct Command {
     sockpath: String,
     #[structopt(default_value = "http://localhost:3000")]
     api_url: String,
+    #[structopt(default_value = "")]
+    api_key: String,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -50,6 +53,7 @@ async fn main() -> std::io::Result<()> {
 
         match client.post(format!("{}/api/v1/whitelist", opts.api_url))
             .json(&params)
+            .header(AUTHORIZATION, &opts.api_key)
             .send()
             .await {
                 Ok(response) => println!("Successfully whitelisted {:?}. Status code {:?}", ip, response.status()),
